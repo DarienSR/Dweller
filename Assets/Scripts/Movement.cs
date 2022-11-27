@@ -51,10 +51,18 @@ public class Movement : MonoBehaviour
 
     private void MovePlayer()
     {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        // Check to see if the player is pressing WASD keys, if so allow movement
+        // If they aren't pressing those keys, we want to stop the player from moving. This eliminates drag
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            // calculate movement direction
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);            
+        }
+        else
+        {
+           rb.velocity = Vector3.zero;
+        }
     }
 
     private void SpeedControl()
