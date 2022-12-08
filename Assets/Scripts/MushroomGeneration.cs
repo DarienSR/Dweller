@@ -14,15 +14,15 @@ public class MushroomGeneration : MonoBehaviour
         numberOfNodes = mushroomNodes.transform.childCount - 1; // subtract one, need to account for starting index of 0;
         Debug.Log(numberOfNodes);
         SpawnMushroom(mushroomNodes.transform.GetChild(0).gameObject);
-        
+        SpawnMushroom(mushroomNodes.transform.GetChild(4).gameObject);
+        SpawnMushroom(mushroomNodes.transform.GetChild(7).gameObject);
+        SpawnMushroom(mushroomNodes.transform.GetChild(14).gameObject);
+        SpawnMushroom(mushroomNodes.transform.GetChild(20).gameObject);
+        SpawnMushroom(mushroomNodes.transform.GetChild(11).gameObject);
+        SpawnMushroom(mushroomNodes.transform.GetChild(17).gameObject);
         Debug.Log(mushroomNodes.transform.GetChild(0).gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SpawnMushroom(GameObject spawnPoint)
     {
@@ -32,7 +32,6 @@ public class MushroomGeneration : MonoBehaviour
         GameObject mushroom = (GameObject)Instantiate(mushroomPrefab);
         mushroom.transform.SetParent(spawnPoint.transform);
         mushroom.transform.position = spawnPoint.transform.position;
-        // set color of mushroom light
     }
 
     public GameObject ReturnMushroomSpawnNode(int index)
