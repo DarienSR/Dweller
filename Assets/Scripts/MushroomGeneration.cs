@@ -12,7 +12,7 @@ public class MushroomGeneration : MonoBehaviour
         // Get the game object that contains all the possible spawning points for the mushrooms.
         mushroomNodes = GameObject.Find("Mushroom Nodes");
         numberOfNodes = mushroomNodes.transform.childCount - 1; // subtract one, need to account for starting index of 0;
-        Debug.Log(numberOfNodes);
+        // Starting mushrooms
         SpawnMushroom(mushroomNodes.transform.GetChild(0).gameObject);
         SpawnMushroom(mushroomNodes.transform.GetChild(4).gameObject);
         SpawnMushroom(mushroomNodes.transform.GetChild(7).gameObject);
@@ -28,7 +28,6 @@ public class MushroomGeneration : MonoBehaviour
     {
         // check to see if spawnpoint already has a mushroom. If it does, don't spawn another one
         if(spawnPoint.transform.childCount != 0) return;
-        Debug.Log("Spawnning Mushroom");
         GameObject mushroom = (GameObject)Instantiate(mushroomPrefab);
         mushroom.transform.SetParent(spawnPoint.transform);
         mushroom.transform.position = spawnPoint.transform.position;

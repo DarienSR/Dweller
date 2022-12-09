@@ -21,7 +21,7 @@ public class Mushroom : MonoBehaviour
     {
         particles.startColor = mushroomColor;
         light.color = mushroomColor;
-        light.intensity = 0.06f;
+        light.intensity = 0.02f;
         generate =  (MushroomGeneration)GameObject.Find("Environment").GetComponent<MushroomGeneration>();
     }
 
